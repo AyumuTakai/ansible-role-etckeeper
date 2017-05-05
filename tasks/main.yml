@@ -41,6 +41,7 @@
   ignore_errors: True
   register: result
   when: ansible_os_family != 'FreeBSD'
+  changed_when: False
 
 - name: configure user email in git
   command: git config --global user.email "{{ git_user_email }}"
