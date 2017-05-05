@@ -43,12 +43,12 @@
   when: ansible_os_family != 'FreeBSD'
   changed_when: False
 
-- name: configure user email in git
-  command: git config --global user.email "{{ git_user_email }}"
+- name: configure user name in git
+  git_config: name=user.name scope=global value="{{ git_user_name }}"
   when: ansible_os_family != 'FreeBSD'
 
-- name: configure user name in git
-  command: git config --global user.name "{{ git_user_name }}"
+- name: configure user email in git
+  git_config: name=user.email scope=global value="{{ git_user_email }}"
   when: ansible_os_family != 'FreeBSD'
 
 - name: init etckeeper repo
